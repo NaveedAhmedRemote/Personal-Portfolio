@@ -24,9 +24,33 @@
   --warm:   #c8bfaf;
   --cool:   #8891a8;
   --dim:    #454d65;
+  --nav-bg: rgba(7,8,11,.88);
+  --star-r: 232;
+  --star-g: 169;
+  --star-b: 69;
   --fd: 'Playfair Display', Georgia, serif;
   --fs: 'Syne', sans-serif;
   --fm: 'Inconsolata', monospace;
+}
+
+[data-theme="light"]{
+  --ink:    #f7f5f0;
+  --ink2:   #efece6;
+  --ink3:   #e6e2db;
+  --ink4:   #ddd9d1;
+  --seam:   #d0cbc2;
+  --amber:  #b8862a;
+  --amber2: #9a6e1e;
+  --amber3: rgba(184,134,42,0.08);
+  --amber4: rgba(184,134,42,0.15);
+  --ivory:  #1a1a1a;
+  --warm:   #4a453d;
+  --cool:   #5c6370;
+  --dim:    #9a958d;
+  --nav-bg: rgba(247,245,240,.92);
+  --star-r: 184;
+  --star-g: 134;
+  --star-b: 42;
 }
 
 html{scroll-behavior:smooth}
@@ -62,6 +86,7 @@ body::before{
   transition:width .25s,height .25s,background .25s;
   mix-blend-mode:screen;
 }
+[data-theme="light"] #cur{mix-blend-mode:multiply}
 #cur-ring{
   width:40px;height:40px;
   border:1.5px solid rgba(232,169,69,.4);
@@ -83,7 +108,7 @@ nav{
   transition:background .4s,border .4s;
 }
 nav.scrolled{
-  background:rgba(7,8,11,.88);
+  background:var(--nav-bg);
   backdrop-filter:blur(24px);
   border-bottom:1px solid var(--seam);
 }
@@ -754,6 +779,43 @@ footer{
 .f-name span{color:var(--amber)}
 .f-copy{font-family:var(--fm);font-size:.6rem;color:var(--dim);letter-spacing:.1em}
 
+/* ── Theme toggle ──────────────────────────────────── */
+.theme-toggle{
+  width:42px;height:42px;
+  background:var(--ink3);
+  border:1px solid var(--seam);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;
+  font-size:1.1rem;
+  color:var(--amber);
+  transition:background .3s,border-color .3s,transform .3s;
+  margin-left:1.2rem;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.theme-toggle:hover{
+  border-color:var(--amber2);
+  background:var(--amber3);
+  transform:scale(1.08);
+}
+.theme-toggle .t-icon{
+  transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .3s;
+  line-height:1;
+}
+
+/* Smooth variable transitions */
+body,body *{
+  transition-property:background-color,color,border-color,box-shadow;
+  transition-duration:.35s;
+  transition-timing-function:ease;
+}
+/* Exclude elements with their own animations */
+.btn-a,.btn-a::before,.fsend,.fsend::before,.metric,.pill,.clink,.stk,.ptag,.exp-pts li,.reveal,.exp-card,.proj-card,#cur,#cur-ring,canvas{
+  transition-property:none;
+}
+
 /* ── Reveal ────────────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -790,6 +852,9 @@ footer{
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="t-icon" id="themeIcon">☀</span>
+  </button>
 </nav>
 
 <!-- ── HERO ──────────────────────────────────────────── -->
@@ -1155,6 +1220,20 @@ footer{
 </footer>
 
 <script>
+// ── Theme toggle ──────────────────────────────────────
+const themeToggle=document.getElementById('themeToggle');
+const themeIcon=document.getElementById('themeIcon');
+function getTheme(){return localStorage.getItem('theme')||'dark'}
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  themeIcon.textContent=t==='light'?'☾':'☀';
+  localStorage.setItem('theme',t);
+}
+applyTheme(getTheme());
+themeToggle.addEventListener('click',()=>{
+  applyTheme(getTheme()==='dark'?'light':'dark');
+});
+
 // ── Cursor ────────────────────────────────────────────
 const cur = document.getElementById('cur');
 const ring = document.getElementById('cur-ring');
@@ -1195,8 +1274,14 @@ for(let i=0;i<120;i++){
   });
 }
 
+function getStarColor(){
+  const s=getComputedStyle(document.documentElement);
+  return [s.getPropertyValue('--star-r').trim(),s.getPropertyValue('--star-g').trim(),s.getPropertyValue('--star-b').trim()];
+}
+
 function drawStars(){
   ctx.clearRect(0,0,W,H);
+  const [sr,sg,sb]=getStarColor();
   // draw connections
   for(let i=0;i<stars.length;i++){
     for(let j=i+1;j<stars.length;j++){
@@ -1206,7 +1291,7 @@ function drawStars(){
         ctx.beginPath();
         ctx.moveTo(stars[i].x,stars[i].y);
         ctx.lineTo(stars[j].x,stars[j].y);
-        ctx.strokeStyle=`rgba(232,169,69,${.07*(1-d/120)})`;
+        ctx.strokeStyle=`rgba(${sr},${sg},${sb},${.07*(1-d/120)})`;
         ctx.lineWidth=.5;
         ctx.stroke();
       }
@@ -1217,13 +1302,13 @@ function drawStars(){
     if(md<180){
       ctx.beginPath();
       ctx.arc(stars[i].x,stars[i].y,stars[i].r*2,0,Math.PI*2);
-      ctx.fillStyle=`rgba(232,169,69,${.5*(1-md/180)})`;
+      ctx.fillStyle=`rgba(${sr},${sg},${sb},${.5*(1-md/180)})`;
       ctx.fill();
     }
 
     ctx.beginPath();
     ctx.arc(stars[i].x,stars[i].y,stars[i].r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(232,169,69,${stars[i].a*.6+.1})`;
+    ctx.fillStyle=`rgba(${sr},${sg},${sb},${stars[i].a*.6+.1})`;
     ctx.fill();
 
     stars[i].x+=stars[i].vx; stars[i].y+=stars[i].vy;
