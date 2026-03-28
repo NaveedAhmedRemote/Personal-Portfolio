@@ -1255,13 +1255,7 @@ document.querySelectorAll('.proj-card').forEach((el,i)=>{
   el.dataset.delay=i*100; io.observe(el);
 });
 
-// ── Contact form — Formspree ──────────────────────────
-// ⚠️ Replace YOUR_FORM_ID with your actual Formspree ID:
-// 1. Go to https://formspree.io → Sign up free
-// 2. New Form → copy the ID (e.g. xpwzabcd)
-// 3. Paste it below, then redeploy
-const FORMSPREE_ID='YOUR_FORM_ID';
-
+// ── Contact form — Web3Forms ──────────────────────────
 document.getElementById('contactForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const btn=document.getElementById('fsendBtn');
@@ -1270,20 +1264,19 @@ document.getElementById('contactForm').addEventListener('submit',async function(
   btn.disabled=true; btn.style.opacity='.65';
   msg.style.display='none';
   try{
-    const res=await fetch(`https://formspree.io/f/${FORMSPREE_ID}`,{
+    const res=await fetch('https://api.web3forms.com/submit',{
       method:'POST',body:new FormData(this),
       headers:{'Accept':'application/json'}
     });
-    if(res.ok){
+    const data=await res.json();
+    if(data.success){
       msg.textContent='✓ Message sent — I\'ll be in touch soon.';
       msg.style.color='#a8d5b5'; msg.style.borderColor='#2a5f3a';
       msg.style.background='rgba(42,95,58,.15)'; msg.style.display='block';
       this.reset();
-    } else throw new Error('failed');
+    } else throw new Error(data.message||'failed');
   }catch(err){
-    msg.textContent=FORMSPREE_ID==='YOUR_FORM_ID'
-      ?'⚠ Form not configured — see HTML comments for setup.'
-      :'✗ Error — please email me directly at NaveedAhmedbeetech@gmail.com';
+    msg.textContent='✗ Error — please email me directly at NaveedAhmedbeetech@gmail.com';
     msg.style.color='#d5a8a8'; msg.style.borderColor='#5f2a2a';
     msg.style.background='rgba(95,42,42,.15)'; msg.style.display='block';
   }finally{
