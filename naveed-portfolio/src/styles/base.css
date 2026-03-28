@@ -1,0 +1,139 @@
+/* ══════════════════════════════════════════════════════
+   BASE — Reset · Variables · Themes · Global
+   ══════════════════════════════════════════════════════ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── Dark theme (default) ─────────────────────────── */
+:root{
+  --ink:    #07080b;
+  --ink2:   #0c0e14;
+  --ink3:   #12151e;
+  --ink4:   #181c27;
+  --seam:   #1f2436;
+  --amber:  #e8a945;
+  --amber2: #c4862a;
+  --amber3: rgba(232,169,69,0.08);
+  --amber4: rgba(232,169,69,0.15);
+  --ivory:  #f5ede0;
+  --warm:   #c8bfaf;
+  --cool:   #8891a8;
+  --dim:    #454d65;
+  --nav-bg: rgba(7,8,11,.88);
+  --star-r: 232;
+  --star-g: 169;
+  --star-b: 69;
+  --fd: 'Playfair Display', Georgia, serif;
+  --fs: 'Syne', sans-serif;
+  --fm: 'Inconsolata', monospace;
+}
+
+/* ── Light theme ──────────────────────────────────── */
+[data-theme="light"]{
+  --ink:    #f7f5f0;
+  --ink2:   #efece6;
+  --ink3:   #e6e2db;
+  --ink4:   #ddd9d1;
+  --seam:   #d0cbc2;
+  --amber:  #b8862a;
+  --amber2: #9a6e1e;
+  --amber3: rgba(184,134,42,0.08);
+  --amber4: rgba(184,134,42,0.15);
+  --ivory:  #1a1a1a;
+  --warm:   #4a453d;
+  --cool:   #5c6370;
+  --dim:    #9a958d;
+  --nav-bg: rgba(247,245,240,.92);
+  --star-r: 184;
+  --star-g: 134;
+  --star-b: 42;
+}
+
+/* ── Global ───────────────────────────────────────── */
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--warm);
+  font-family:var(--fs);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ── Noise overlay ────────────────────────────────── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:0.032;
+  pointer-events:none;
+  z-index:9000;
+}
+
+/* ── Custom cursor ────────────────────────────────── */
+#cur{
+  width:8px;height:8px;
+  background:var(--amber);
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s,height .25s,background .25s;
+  mix-blend-mode:screen;
+}
+[data-theme="light"] #cur{mix-blend-mode:multiply}
+#cur-ring{
+  width:40px;height:40px;
+  border:1.5px solid rgba(232,169,69,.4);
+  border-radius:50%;
+  position:fixed;
+  pointer-events:none;
+  z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width .3s,height .3s,border-color .3s;
+}
+body:has(a:hover) #cur{width:18px;height:18px;background:var(--ivory)}
+body:has(a:hover) #cur-ring{width:54px;height:54px;border-color:rgba(232,169,69,.2)}
+
+/* ── Theme toggle button ──────────────────────────── */
+.theme-toggle{
+  width:42px;height:42px;
+  background:var(--ink3);
+  border:1px solid var(--seam);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:none;
+  font-size:1.1rem;
+  color:var(--amber);
+  transition:background .3s,border-color .3s,transform .3s;
+  margin-left:1.2rem;
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+}
+.theme-toggle:hover{
+  border-color:var(--amber2);
+  background:var(--amber3);
+  transform:scale(1.08);
+}
+.theme-toggle .t-icon{
+  transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .3s;
+  line-height:1;
+}
+
+/* ── Smooth theme transitions ─────────────────────── */
+body,body *{
+  transition-property:background-color,color,border-color,box-shadow;
+  transition-duration:.35s;
+  transition-timing-function:ease;
+}
+.btn-a,.btn-a::before,.fsend,.fsend::before,.metric,.pill,.clink,.stk,.ptag,.exp-pts li,.reveal,.exp-card,.proj-card,#cur,#cur-ring,canvas{
+  transition-property:none;
+}
+
+/* ── Reveal animation ─────────────────────────────── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
