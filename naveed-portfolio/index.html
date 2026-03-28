@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Naveed Ahmed — Full Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ── NAV ───────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-logo">N<span>.</span>Ahmed</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span class="t-icon" id="themeIcon">☀</span>
+  </button>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <canvas id="starCanvas"></canvas>
+  <div class="hero-glow"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Full Stack Engineer · 7+ Years</div>
+      </div>
+
+      <h1 class="hero-name">
+        Naveed
+        <span class="word-two">Ahmed.</span>
+      </h1>
+
+      <div class="hero-role">Angular · Node.js · Python · AWS Cloud</div>
+
+      <p class="hero-desc">
+        Architecting scalable, secure web applications that perform under pressure — from legacy modernisation to real-time cloud systems.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-a"><span>Let's Talk</span></a>
+        <a href="#experience" class="btn-b">See my work</a>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-header">// performance snapshot</div>
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-val">7+</span>
+          <span class="metric-key">Years Built</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">40%</span>
+          <span class="metric-key">Perf. Gain</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">50%</span>
+          <span class="metric-key">Faster Fixes</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val">35%</span>
+          <span class="metric-key">Engagement ↑</span>
+        </div>
+      </div>
+      <div class="panel-location">
+        <div class="loc-pulse"></div>
+        <div class="loc-info">Based in <strong>Abbottabad, Pakistan</strong> · Open to Remote</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── ABOUT ─────────────────────────────────────────── -->
+<div id="about">
+  <div class="section-wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div class="sec-label">
+        <div class="sec-tag">Who I am</div>
+        <h2 class="sec-title">The Engineer<br/><em>Behind the Code</em></h2>
+      </div>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-body reveal">
+        <p>I'm a <strong>Full Stack Engineer</strong> with 7+ years building production-grade applications across diverse tech stacks. Currently working remotely for <strong>Xref, Sydney</strong> — a global HR technology platform — where I lead legacy modernisation, cloud security design, and feature delivery for high-revenue systems.</p>
+
+        <div class="pull-quote">
+          <p>I don't just write code — I architect solutions that scale, perform, and endure under real-world pressure.</p>
+        </div>
+
+        <p>My engineering journey began at Beetechnica in 2018 as an intern. I grew into a full-time contributor, then a <strong>team lead</strong> at Horizon Tele Tech, building real-time dashboards and leading complex stack migrations. Every role has deepened my conviction that elegant engineering is invisible to users — it simply works.</p>
+
+        <p>Outside work I hold a <strong>BS in Computer Science</strong> from COMSATS University, Abbottabad, and placed 2nd in the Hazara Regional Science Olympiad 2019.</p>
+      </div>
+
+      <div class="skills-panel reveal">
+        <div class="skill-cat">
+          <div class="skill-cat-name">Front-End</div>
+          <div class="skill-pills">
+            <span class="pill">Angular 16</span><span class="pill">RxJS</span><span class="pill">NgRx</span>
+            <span class="pill">Vue.js</span><span class="pill">React.js</span>
+            <span class="pill">TypeScript</span><span class="pill">SCSS</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Back-End</div>
+          <div class="skill-pills">
+            <span class="pill">Node.js</span><span class="pill">NestJS</span>
+            <span class="pill">Python</span><span class="pill">Django</span>
+            <span class="pill">REST APIs</span><span class="pill">WebSocket</span>
+            <span class="pill">Microservices</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Cloud & DevOps</div>
+          <div class="skill-pills">
+            <span class="pill">AWS KMS</span><span class="pill">EC2</span>
+            <span class="pill">CloudWatch</span><span class="pill">Lambda</span>
+            <span class="pill">S3</span><span class="pill">Docker</span>
+            <span class="pill">Datadog</span><span class="pill">DevCycle</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <div class="skill-cat-name">Databases</div>
+          <div class="skill-pills">
+            <span class="pill">PostgreSQL</span><span class="pill">MongoDB</span>
+            <span class="pill">MySQL</span><span class="pill">Sequelize</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── EXPERIENCE ─────────────────────────────────────── -->
+<div class="full-bleed" id="experience">
+  <div class="section-wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div class="sec-label">
+        <div class="sec-tag">Career</div>
+        <h2 class="sec-title">Where I've<br/><em>Made an Impact</em></h2>
+      </div>
+    </div>
+
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-aside">
+          <div class="exp-period">Jan 2023 — Present</div>
+          <div class="exp-co">Xref</div>
+          <div class="exp-where">Remote · Sydney, Australia</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-title">Full Stack Engineer</div>
+          <ul class="exp-pts">
+            <li>Led migration of <strong>AngularJS → Angular 16</strong> across high-revenue systems, achieving <strong>40% performance improvement</strong> and 30% maintenance reduction.</li>
+            <li>Spearheaded daily feature development, increasing <strong>user engagement by 25%</strong>; implemented Winston logging reducing issue resolution time by <strong>50%</strong>.</li>
+            <li>Designed secure <strong>AWS KMS</strong> API workflows for encryption/decryption compliance; integrated third-party APIs via microservices with CloudWatch and Datadog monitoring.</li>
+            <li>Implemented <strong>DevCycle feature flags</strong> for controlled A/B rollouts; automated DB maintenance and EC2 scaling for production traffic management.</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="stk">Angular 16</span><span class="stk">Node.js</span><span class="stk">Python</span>
+            <span class="stk">Django</span><span class="stk">AWS KMS</span><span class="stk">EC2</span>
+            <span class="stk">CloudWatch</span><span class="stk">Docker</span><span class="stk">Datadog</span>
+            <span class="stk">PostgreSQL</span><span class="stk">MongoDB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-aside">
+          <div class="exp-period">Aug 2021 — Dec 2022</div>
+          <div class="exp-co">Horizon Tele Tech</div>
+          <div class="exp-where">Rawalpindi, Pakistan</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-title">Full Stack Engineer & Team Lead</div>
+          <ul class="exp-pts">
+            <li>Led team migration from <strong>Yii2 → Angular 9 + NestJS</strong>, boosting module engagement by <strong>35%</strong> and improving query performance by <strong>30%</strong> via Sequelize migration.</li>
+            <li>Architected real-time <strong>financial management dashboard</strong> with WebSocket pipelines, improving operational efficiency by <strong>20%</strong>.</li>
+            <li>Implemented <strong>AWS Lambda</strong> serverless functions; managed cross-functional team across Git, GitHub, GitLab, and Bitbucket.</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="stk">Angular 9</span><span class="stk">NestJS</span><span class="stk">Node.js</span>
+            <span class="stk">WebSocket</span><span class="stk">Sequelize</span><span class="stk">MySQL</span>
+            <span class="stk">AWS Lambda</span><span class="stk">Strapi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-aside">
+          <div class="exp-period">Oct 2020 — Nov 2021</div>
+          <div class="exp-co">Financials Unlimited</div>
+          <div class="exp-where">Abbottabad, Pakistan</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-title">Frontend / Full Stack Developer</div>
+          <ul class="exp-pts">
+            <li>Integrated REST APIs into <strong>Vue.js</strong> components; implemented features with Vuetify, AJAX, and JSON contributing to a <strong>15% increase in user engagement</strong>.</li>
+            <li>Adopted mobile-first design; transitioned into full-stack development, collaborating across the full SDLC.</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="stk">Vue.js</span><span class="stk">Vuetify</span><span class="stk">Vuex</span>
+            <span class="stk">Node.js</span><span class="stk">REST APIs</span><span class="stk">SCSS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-aside">
+          <div class="exp-period">Jul 2018 — Jun 2020</div>
+          <div class="exp-co">Beetechnica</div>
+          <div class="exp-where">Abbottabad, Pakistan</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-title">Angular Developer</div>
+          <ul class="exp-pts">
+            <li>Migrated multipage app to <strong>SPA</strong>, boosting engagement by <strong>40%</strong>; mobile-first redesign improved mobile UX by <strong>25%</strong>.</li>
+            <li>Delivered <strong>Talk2Doctors</strong> project end-to-end; grew from intern to full-time contributor building Angular 9 + TypeScript components.</li>
+          </ul>
+          <div class="exp-stack">
+            <span class="stk">Angular 9</span><span class="stk">TypeScript</span>
+            <span class="stk">HTML5</span><span class="stk">CSS3</span><span class="stk">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── PROJECTS ────────────────────────────────────────── -->
+<div id="projects">
+  <div class="section-wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div class="sec-label">
+        <div class="sec-tag">Selected Work</div>
+        <h2 class="sec-title">Built to<br/><em>Last & Scale</em></h2>
+      </div>
+    </div>
+
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-index">01</div>
+        <div class="proj-cat">Legacy Modernisation</div>
+        <div class="proj-name">AngularJS → Angular <em>16</em> Migration</div>
+        <div class="proj-divider"></div>
+        <div class="proj-kpi">40%</div>
+        <div class="proj-kpi-label">Performance Improvement</div>
+        <p class="proj-desc">Architected full migration of Xref's high-revenue legacy AngularJS apps to Angular 16 with RxJS and NgRx state management. Delivered a full responsive redesign and achieved 30% maintenance reduction.</p>
+        <div class="proj-tech">
+          <span class="ptag">Angular 16</span><span class="ptag">RxJS</span><span class="ptag">NgRx</span>
+          <span class="ptag">Node.js</span><span class="ptag">AWS</span><span class="ptag">Docker</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-index">02</div>
+        <div class="proj-cat">Real-Time Dashboard</div>
+        <div class="proj-name">Financial Management <em>Dashboard</em></div>
+        <div class="proj-divider"></div>
+        <div class="proj-kpi">20%</div>
+        <div class="proj-kpi-label">Operational Efficiency Gain</div>
+        <p class="proj-desc">Designed and built a real-time financial dashboard with WebSocket data pipelines, reporting modules, and user controls. Migrated data layer from MongoDB to Sequelize improving query performance by 30%.</p>
+        <div class="proj-tech">
+          <span class="ptag">Angular 9</span><span class="ptag">NestJS</span><span class="ptag">WebSocket</span>
+          <span class="ptag">Sequelize</span><span class="ptag">MySQL</span><span class="ptag">AWS Lambda</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-index">03</div>
+        <div class="proj-cat">Cloud Security</div>
+        <div class="proj-name">AWS KMS <em>Secure API</em> Key System</div>
+        <div class="proj-divider"></div>
+        <div class="proj-kpi">✦</div>
+        <div class="proj-kpi-label">Full Compliance Coverage</div>
+        <p class="proj-desc">Deployed AWS KMS-based encryption/decryption and comparison mechanisms for API keys across production systems, strengthening compliance and safeguarding sensitive client data.</p>
+        <div class="proj-tech">
+          <span class="ptag">AWS KMS</span><span class="ptag">Node.js</span><span class="ptag">Python</span>
+          <span class="ptag">Django</span><span class="ptag">Microservices</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-index">04</div>
+        <div class="proj-cat">IoT — Final Year Project</div>
+        <div class="proj-name">Automated Water Pump <em>+ Android</em></div>
+        <div class="proj-divider"></div>
+        <div class="proj-kpi">IoT</div>
+        <div class="proj-kpi-label">Hardware + Software Integration</div>
+        <p class="proj-desc">Android app for remote pump control and real-time tank monitoring. Automated overflow/underflow control and billing management for Tubewell operators via BeagleBone integration.</p>
+        <div class="proj-tech">
+          <span class="ptag">Android</span><span class="ptag">Java</span><span class="ptag">C</span>
+          <span class="ptag">BeagleBone</span><span class="ptag">IoT</span><span class="ptag">Circuit Design</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ────────────────────────────────────────── -->
+<div class="full-bleed" id="contact">
+  <div class="section-wrap">
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="contact-big">Let's build something<br/><em>remarkable.</em></div>
+        <p class="contact-blurb">Open to full-time roles, remote contracts, and freelance projects — particularly in full-stack development, cloud architecture, and Angular/Node.js engineering.</p>
+        <div class="contact-items">
+          <a href="mailto:NaveedAhmedbeetech@gmail.com" class="clink">
+            <div class="clink-ico">✉</div>
+            <div class="clink-meta">
+              <div class="clink-type">Email</div>
+              <div class="clink-val">NaveedAhmedbeetech@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+923411122295" class="clink">
+            <div class="clink-ico">☎</div>
+            <div class="clink-meta">
+              <div class="clink-type">Phone</div>
+              <div class="clink-val">0341-1122295</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/naveed-ahmed-xref/" target="_blank" class="clink">
+            <div class="clink-ico">in</div>
+            <div class="clink-meta">
+              <div class="clink-type">LinkedIn</div>
+              <div class="clink-val">linkedin.com/in/naveedahmed</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <form id="contactForm">
+          <div class="form-row">
+          <input type="hidden" name="access_key" value="0a6d850a-1ecb-4f69-9f7e-4f3968b29d7a"/>
+          <input type="hidden" name="subject" value="New message from your portfolio"/>
+          <input type="hidden" name="from_name" value="Portfolio Contact Form"/>
+          <input type="checkbox" name="botcheck" style="display:none"/>
+            <label class="flabel">Your Name</label>
+            <input class="finput" type="text" name="name" placeholder="e.g. Ahmad Hassan" required/>
+          </div>
+          <div class="form-row">
+            <label class="flabel">Email Address</label>
+            <input class="finput" type="email" name="email" placeholder="your@email.com" required/>
+          </div>
+          <div class="form-row">
+            <label class="flabel">Message</label>
+            <textarea class="finput" name="message" placeholder="Tell me about the opportunity or project…" required></textarea>
+          </div>
+          <button class="fsend" type="submit" id="fsendBtn"><span>Send Message →</span></button>
+          <div id="fmsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="f-name">Naveed <span>Ahmed</span></div>
+  <div class="f-copy">© 2025 · Full Stack Engineer · Abbottabad, Pakistan</div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

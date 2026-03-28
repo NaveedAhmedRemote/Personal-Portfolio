@@ -1,0 +1,27 @@
+naveed-portfolio/
+├── index.html                     ← clean HTML only
+├── package.json                   ← Vite
+├── vite.config.js
+├── .env.example                   ← AI config template
+├── src/
+│   ├── main.js                    ← entry point
+│   ├── config.js                  ← reads VITE_* env vars
+│   ├── styles/
+│   │   ├── base.css               ← variables, themes, cursor, transitions
+│   │   ├── layout.css             ← nav, hero, sections, footer, responsive
+│   │   ├── components.css         ← cards, pills, buttons, form, experience
+│   │   └── chat.css               ← floating chat widget
+│   ├── modules/
+│   │   ├── theme.js               ← dark/light toggle + localStorage
+│   │   ├── cursor.js              ← custom cursor
+│   │   ├── constellation.js       ← star canvas (theme-aware)
+│   │   ├── scroll.js              ← reveal animations + active nav
+│   │   └── contact.js             ← Web3Forms submission
+│   └── ai/
+│       ├── index.js               ← bootstrap — picks provider, mounts widget
+│       ├── chat-widget.js         ← floating chat UI (self-contained DOM)
+│       ├── context.js             ← structured portfolio data for AI prompts
+│       └── providers/
+│           ├── base.js            ← abstract AIProvider interface
+│           ├── openai.js          ← direct OpenAI API (with streaming)
+│           └── langchain.js       ← LangChain backend proxy
